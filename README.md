@@ -1,4 +1,4 @@
-# virtual-casing
+# Biest to python for vacuum field application (blueprinting virtual-casing repo)
 
 ## Installation
 ### C++ Executable
@@ -16,14 +16,14 @@ Run cmake from within the build folder.
 
     cmake ..
   
-If the above command succeeds, we can go to the next step. Build the ``vc_testing`` executable by running
+If the above command succeeds, we can go to the next step. Build the shared library for the python interface
 
-    make vc_testing
+    make 
   
-If the compilation is successful, you will have ``vc_testing`` in the ``build`` folder. 
+If the compilation is successful, you will have a ``*.so`` in the ``build`` folder. This file  already allows to  call the routines from python.
 
 
-### Python package
+### Install as python package
 
 We also need ninja package, which can be installed with pip
 

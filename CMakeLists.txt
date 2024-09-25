@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(virtual_casing)
+project(vacuum_field)
 #set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -107,7 +107,8 @@ add_subdirectory(extern/pybind11)
 #Python_add_library(${PROJECT_NAME} MODULE src/python.cpp)
 #target_link_libraries(${PROJECT_NAME} PRIVATE pybind11::pybind11)
 pybind11_add_module(${PROJECT_NAME} src/python.cpp)
-add_executable(vc_testing EXCLUDE_FROM_ALL test/virtual-casing.cpp)
+#add_executable(vc_testing EXCLUDE_FROM_ALL test/virtual-casing.cpp)
+add_executable(vc_testing EXCLUDE_FROM_ALL test/test-vacuum-field_0064.cpp)
 # Fix for PowerPC with PGI compiler
 target_compile_options(vc_testing PUBLIC "$<$<CXX_COMPILER_ID:PGI>:-Wc,--pending_instantiations=1000>")
 target_compile_options(${PROJECT_NAME} PUBLIC "$<$<CXX_COMPILER_ID:PGI>:-Wc,--pending_instantiations=1000>")

@@ -1,5 +1,5 @@
 #include <vector>
-#include <virtual-casing.hpp>
+#include <biest.hpp>
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
@@ -7,7 +7,7 @@
 namespace py = pybind11;
 
 
-PYBIND11_MODULE(virtual_casing, m) {
+PYBIND11_MODULE(vacuum_field, m) {
 
     py::class_<sctl::Vector<double>>(m, "SCTLDoubleVector")
          .def(py::init<>())
@@ -30,6 +30,13 @@ PYBIND11_MODULE(virtual_casing, m) {
         .value("Stell", biest::SurfType::Stell)                                 // 250 x 50
         .value("W7X_", biest::SurfType::W7X_);
 
+    py::class_<biest::ExtVacuumField<double>>(m, "vacuum_field")
+        .def(py::init<>())
+        .def("Setup", &biest::ExtVacuumField<double>::Setup)
+        .def("ComputeBdotN", &biest::ExtVacuumField<double>::ComputeBdotN)
+        .def("ComputeBplasma", &biest::ExtVacuumField<double>::ComputeBplasma);
+}
+/**
     py::class_<VirtualCasing<double>>(m, "VirtualCasing")
         .def(py::init<>())
         .def("setup", &VirtualCasing<double>::Setup)
@@ -44,4 +51,4 @@ PYBIND11_MODULE(virtual_casing, m) {
         .def_static("magnetic_field_grad_data", &VirtualCasingTestData<double>::GradBFieldData);
 
 }
-
+**/

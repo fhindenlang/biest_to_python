@@ -34,13 +34,15 @@ PYBIND11_MODULE(vacuum_field, m) {
         .def(py::init<>())
         .def("Setup", &biest::ExtVacuumField<double>::Setup)
         .def("ComputeBdotN", &biest::ExtVacuumField<double>::ComputeBdotN)
-        .def("ComputeBplasma", &biest::ExtVacuumField<double>::ComputeBplasma);
+        .def("ComputeBplasma", &biest::ExtVacuumField<double>::ComputeBplasma)
+        .def("ComputeU", &biest::ExtVacuumField<double>::ComputeU);
 
     py::class_<biest::IntVacuumField<double>>(m, "int_vacuum_field")
         .def(py::init<>())
         .def("Setup", &biest::IntVacuumField<double>::Setup)
         .def("ComputeBdotN", &biest::IntVacuumField<double>::ComputeBdotN)
-        .def("ComputeB", &biest::IntVacuumField<double>::ComputeB);
+        .def("ComputeB", &biest::IntVacuumField<double>::ComputeB)
+        .def("ComputeU", &biest::IntVacuumField<double>::ComputeU);
 }
 /**
     py::class_<VirtualCasing<double>>(m, "VirtualCasing")
